@@ -1,1 +1,6 @@
-config/*
+# configs
+/config
+
+
+# dependencies
+/node_modules
