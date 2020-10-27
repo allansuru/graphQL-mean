@@ -6,6 +6,9 @@ module.exports = buildSchema(`
         quote: String!
         author: String!
     }
+    type QuoteData {
+        quotes: [Quote!]!
+    }
     type RootQuery {
         quotes: QuoteData!
     }
