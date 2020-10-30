@@ -26,13 +26,13 @@ module.exports = {
     },
 
     updateQuote: async function ({ id, quoteInput: { quote, author } }) {
-        const quoteFind = await Quote.findById(id);
-        if (!quoteFind) {
+        const _quote = await Quote.findById(id);
+        if (!_quote) {
             throw new Error('No quote found!');
         }
-        quote.quote = quote;
-        quote.author = author;
-        const updatedQuote = await quoteFind.save();
+        _quote.quote = quote;
+        _quote.author = author;
+        const updatedQuote = await _quote.save();
 
         return {
             ...updatedQuote._doc,
