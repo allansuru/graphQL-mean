@@ -38,5 +38,20 @@ module.exports = {
             ...updatedQuote._doc,
             _id: updatedQuote._id.toString(),
         }
+
+    },
+
+    deleteQuote: async function ({ id }) {
+        const _quote = await Quote.findById(id);
+        if (!_quote) {
+            throw new Error('No quote found!');
+        }
+
+        await _quote.deleteOne();
+
+        return {
+            ..._quote._doc,
+            _id: _quote._id.toString(),
+        }
     }
 }
