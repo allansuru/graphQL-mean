@@ -18,6 +18,7 @@ module.exports = buildSchema(`
     }
     type RootMutation {
         createQuote(quoteInput: QuoteInputData): Quote!
+        updateQuote(id: ID!, quoteInput:QuoteInputData): Quote!
     }
     schema {
         query: RootQuery

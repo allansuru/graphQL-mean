@@ -23,5 +23,20 @@ module.exports = {
             ...createdQuote._doc,
             _id: createdQuote._id.toString(),
         }
+    },
+
+    updateQuote: async function ({ id, quoteInput: { quote, author } }) {
+        const quoteFind = await Quote.findById(id);
+        if (!quoteFind) {
+            throw new Error('No quote found!');
+        }
+        quote.quote = quote;
+        quote.author = author;
+        const updatedQuote = await quoteFind.save();
+
+        return {
+            ...updatedQuote._doc,
+            _id: updatedQuote._id.toString(),
+        }
     }
 }

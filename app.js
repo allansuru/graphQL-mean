@@ -11,10 +11,11 @@ const graphqlResolver = require('./graphql/resolvers')
 const config = require('./config/config.json')
 
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.json());
 
-app.use(cors());
+
 
 // graphql
 app.use('/graphql', graphqlHTTP({
