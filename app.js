@@ -8,7 +8,7 @@ const { graphqlHTTP } = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
 const graphqlResolver = require('./graphql/resolvers')
 
-const config = require('./config/config.json')
+const config = require('./config.json')
 
 const app = express();
 app.use(cors());
