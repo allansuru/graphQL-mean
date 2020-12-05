@@ -8,14 +8,10 @@ const { graphqlHTTP } = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
 const graphqlResolver = require('./graphql/resolvers')
 
-const config = require('./config.json')
-
 const app = express();
 app.use(cors());
 
 app.use(bodyParser.json());
-
-
 
 // graphql
 app.use('/graphql', graphqlHTTP({
@@ -24,9 +20,7 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true,
 }))
 
-const mongoUri = process.env.NODE_ENV === 'development'
-    ? `mongodb+srv://${config.user}:${config.password}@cluster0-bysxg.mongodb.net/${config.dbname}?retryWrites=true&w=majority`
-    : `mongodb+srv://${process.env.user}:${process.env.password}@cluster0-bysxg.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`;
+const mongoUri = `mongodb+srv://${process.env.user}:${process.env.password}@cluster0-bysxg.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`;
 
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,

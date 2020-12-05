@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development nodemon app.js",
+    "dev": "NODE_ENV=development nodenv -f nodemon app.js",
     "start": "node app.js"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
     "mongoose": "^5.10.10"
   },
   "devDependencies": {
+    "node-env-run": "^4.0.2",
     "nodemon": "^2.0.6"
   }
 }
