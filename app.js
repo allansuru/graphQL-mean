@@ -23,18 +23,10 @@ app.use('/graphql', graphqlHTTP({
     rootValue: graphqlResolver,
     graphiql: true,
 }))
-let mongoUri;
-console.log(process.env.NODE_ENV)
-if (process.env.NODE_ENV === 'development') {
-    mongoUri =
-        `mongodb+srv://${config.user}:${config.password}@cluster0-bysxg.mongodb.net/${config.dbname}?retryWrites=true&w=majority`;
-} else {
-    console.log(process.env.user)
-    mongoUri =
-        `mongodb+srv://${process.env.user}:${process.env.password}@cluster0-bysxg.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`;
-}
 
-
+const mongoUri = process.env.NODE_ENV === 'development'
+    ? `mongodb+srv://${config.user}:${config.password}@cluster0-bysxg.mongodb.net/${config.dbname}?retryWrites=true&w=majority`
+    : `mongodb+srv://${process.env.user}:${process.env.password}@cluster0-bysxg.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`;
 
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
