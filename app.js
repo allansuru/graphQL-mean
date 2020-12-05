@@ -24,7 +24,7 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true,
 }))
 
-app.listen(process.env.PORT || 3000, () => console.log("conectou no mongo e na porta 3000"))
+
 const mongoUri =
     `mongodb+srv://${config.user}:${config.password}@cluster0-bysxg.mongodb.net/${config.dbname}?retryWrites=true&w=majority`;
 mongoose.connect(mongoUri, {
