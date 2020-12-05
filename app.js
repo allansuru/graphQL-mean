@@ -32,6 +32,6 @@ mongoose.connect(mongoUri, {
     useCreateIndex: true,
     useUnifiedTopology: true,
 }).then(() => {
-    app.listen(3000, () => console.log("conectou no mongo e na porta 3000"))
+    app.listen(process.env.PORT || 3000, () => console.log("conectou no mongo e na porta 3000"))
 }).catch((err) => console.log("Erro no mongoDB", err))
 
